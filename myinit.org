@@ -1,0 +1,41 @@
+#+STARTUP: overview
+#+PROPERTY: header-args :comments yes :results silent
+
+* interface tweaks
+
+#+BEGIN_SRC emacs-lisp
+  (setq inhibit-startup-message t)
+  (tool-bar-mode -1)
+  (fset 'yes-or-no-p 'y-or-n-p)
+  ;; (global-set-key (kbd "<f5>") 'revert-buffer)
+
+#+END_SRC
+
+* try
+#+BEGIN_SRC emacs-lisp
+  (use-package try
+    :ensure t)
+
+#+END_SRC
+
+* Org mode
+Org bullets makes things look pretty
+#+BEGIN_SRC emacs-lisp
+
+  (use-package org-bullets
+    :init
+    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+    :ensure t)
+
+
+  (custom-set-variables
+   '(org-directory "~/Sync/orgfiles") 
+   '(org-default-notes-file (concat org-directory "/notes.org"))
+   '(org-export-html-postamble nil)
+   '(org-hide-leading-stars t)
+   '(org-startup-dolded 'overview)
+   '(org-startup-indented t)
+   '(org-confirm-babel-evaluate nil)
+   '(org-src-fontify-natively t))
+
+#+END_SRC

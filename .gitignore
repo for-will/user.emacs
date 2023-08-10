@@ -1,0 +1,11 @@
+\#*
+.lsp-session-v1
+auto-save-list/
+elpa-site/
+elpa/
+eshell/
+history
+places
+projects
+recentf
+tree-sitter/
