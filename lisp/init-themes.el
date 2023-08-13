@@ -27,6 +27,11 @@
     (vertico-posframe-poshandler . posframe-poshandler-window-center)
     (vertico-posframe-truncate-lines . nil)
     (vertico-posframe-fallback-mode . vertico-buffer-mode))
+   (consult-imenu-multi posframe
+    (vertico-posframe-poshandler . posframe-poshandler-window-bottom-center)
+    (vertico-posframe-truncate-lines . t)
+    (vertico-posframe-border-width . 2)
+    (vertico-posframe-fallback-mode . vertico-buffer-mode))
    (t posframe
     (vertico-posframe-poshandler . posframe-poshandler-frame-center)
     (vertico-posframe-truncate-lines . t)
@@ -69,12 +74,18 @@
 ;;   :hook (after-init . keycast-mode))
 (unless (package-installed-p 'keycast)
   (package-install 'keycast))
-
 (require 'keycast)
+;; (add-to-list 'global-mode-string '("" keycast-mode-line))
+(keycast-mode-line-mode t)
+;; (keycast-mode-line-mode 0)
+;; (add-hook 'post-command-hook 'keycast--update t)
 
-(add-to-list 'global-mode-string '("" keycast-mode-line))
+;; (default-value keycast-mode-line)
+;; (list 'keycast-mode-line)
 
-(keycast-mode nil)
+;; (funcall keycast-mode-line-window-predicate)
+
+;;      (keycast--format keycast-mode-line-format)
 
 
 					; doom mode line
@@ -88,6 +99,37 @@
 ;;   (setq sml/no-confirm-load-theme t
 ;; 	sml/theme 'respectful)
 ;;   (sml/setup))
+
+;; (use-package all-the-icons-ivy)
+
+;; (all-the-icons-ivy-rich-mode t)
+
+
+ 
+
+(use-package all-the-icons-ivy-rich
+  :init
+  (all-the-icons-ivy-rich-mode t)
+  (ivy-rich-mode t)
+  (ivy-mode t)
+  :config
+  (ivy-mode nil)
+  (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-next-line)
+  (define-key ivy-minibuffer-map (kbd "C-k") 'ivy-previous-line)
+  (define-key ivy-switch-buffer-map (kbd "C-k") 'ivy-previous-line)
+  (define-key ivy-switch-buffer-map (kbd "C-d") 'ivy-switch-buffer-kill))
+
+(ivy-mode -1)
+
+(use-package ivy-posframe
+  :init
+  (ivy-posframe-mode t))
+
+;; (ivy-set-display-transformer 'ivy-switch-buffer 'all-the-icons-ivy-buffer-transformer)
+;; (ivy-set-display-transformer 'counsel-find-file 'all-the-icons-ivy-file-transformer)
+;; (ivy-set-display-transformer 'counsel-find-file nil)
+;; (all-the-icons-ivy-setup)
+;; (ivy-set-display-transformer 'counsel-find-file 'all.the.icons.transfo x)
 
 
 (provide 'init-themes)

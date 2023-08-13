@@ -10,11 +10,16 @@
    company-global-modes
    '(not erc-mode message-mode eshell-mode shell-mode)
    company-idle-delay
-   (lambda() (if (company-in-string-or-comment) nil 0)))
+   (lambda()
+     (cond ((eq major-mode 'js-json-mode) 0)
+	   ((company-in-string-or-comment) nil)
+	   (t 0))
+     ;; (if (and (company-in-string-or-comment) (not (eq major-mode 'js-json-mode))) nil 0))
+     ))
   :bind
   (:map
    company-active-map
-   ("<tab>" . company-complete-common-or-cycle)
+   ("<tab>" . company-complete-common)
    ("<escape>" . company-abort)
    ("C-j" . company-select-next)
    ("C-k" . company-select-previous))
@@ -33,7 +38,7 @@
         ;company-preview-frontend
         company-preview-common-frontend
         company-echo-metadata-frontend)
-      company-backends '(company-capf)
+      ;; company-backends '(company-files company-capf)
       company-format-margin-function 'company-text-icons-margin
       company-text-face-extra-attributes '(:weight bold :slant italic)
       company-text-icons-add-background t

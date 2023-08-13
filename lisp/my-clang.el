@@ -4,24 +4,33 @@
 ;;; Code:
 
 
+(defun just-insert-tab ()
+  "Just insert tab."
+  (interactive)
+  (insert-tab))
+		
 (add-hook 'c-mode-hook
 	  (lambda ()
-	    (define-key c-mode-map (kbd "C-<tab>") 'c-indent-line-or-region)
+	    ;; (c-toggle-electric-state -1)
 	    ;; (electric-indent-mode -1)
 	    (setq c-basic-offset tab-width
-		  c-electric-flag t
-		  c-tab-always-indent nil
-		  c-syntactic-indentation t)))
+		  ;; c-electric-flag t
+		  ;; c-tab-always-indent nil
+		  ;; c-syntactic-indentation t
+		  )))
 
-;; (use-package eglot
-;;   :init
-;;   (add-hook 'c-mode-hook 'eglot-ensure)
-;;   (add-hook 'c++-mode-hook 'eglot-ensure))
+;; (with-eval-after-load 'c-mode
+;;   (electric-indent-mode -1)
+;;   (setq c-basic-offset tab-width
+;; 	c-electric-flag t
+;; 	c-tab-always-indent nil
+;; 	c-syntactic-indentation t))
 
 (require 'eglot)
 (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
 (add-hook 'c-mode-hook #'eglot-ensure)
 (add-hook 'c++-mode-hook #'eglot-ensure)
+;; (add-hook 'js-mode-hook #'eglot-ensure)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;

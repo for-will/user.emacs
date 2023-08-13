@@ -12,6 +12,7 @@
 
 (require 'package)
 
+
 (unless (bound-and-true-p package-initialized)
   (package-initialize))
 

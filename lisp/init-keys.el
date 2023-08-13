@@ -80,37 +80,29 @@
  :prefix "SPC"
  "x" 'execute-extended-command
  "f" 'counsel-find-file
- "l" 'helm-buffers-list
+ "r" 'counsel-buffer-or-recentf
+ "l" 'ivy-switch-buffer-other-window
  "i" 'consult-imenu-multi
  "s" 'consult-ripgrep
  "b" 'consult-buffer
+ "p" 'project-find-file
  "gu" 'xref-find-references
  "gg" 'xref-find-definitions
+ "gc" 'avy-goto-char
+ "gl" 'avy-goto-line
+ "gw" 'avy-goto-word-0
+ "ef" 'eglot-code-action-quickfix
  "v" 'er/expand-region)
  
+;; 'C-j' 'C-k' 进行上下选择
 
+(add-hook 'helm-major-mode-hook
+	  (lambda ()
+	    (define-key helm-map (kbd "C-j") 'helm-next-line)
+	    (define-key helm-map (kbd "C-d") 'helm-next-page)
+	    (define-key helm-map (kbd "C-k") 'helm-previous-line)
+	    (define-key helm-map (kbd "C-u") 'helm-previous-page)))
 
-;; ;; `SPC b' map to 'switch to buffer
-;; (define-key evil-normal-state-map (kbd "SPC b") 'consult-buffer)
-
-;; ;; 打开文件
-;; (define-key evil-normal-state-map (kbd "SPC f") 'counsel-find-file)
-
-
-;; ;; 管理buffers
-;; (define-key evil-normal-state-map (kbd "SPC l") 'list-buffers)
-
-;; ;; 关闭其它窗口
-;; (define-key evil-normal-state-map (kbd "SPC 0") 'delete-other-windows)
-
-;; (define-key evil-normal-state-map (kbd "SPC c") 'delete-window)
-
-;; ;; 执行扩展命令
-;; (define-key evil-normal-state-map (kbd "SPC x") 'execute-extended-command)
-
-;; ;; consult imenu
-;; ;(define-key evil-normal-state-map (kbd "SPC m") 'consult-imenu-multi)
-;; (define-key evil-normal-state-map (kbd "SPC m") 'consult-imenu)
  
 ;; 注释快捷键
 ;; (define-key evil-insert-state-map (kbd "s-/") 'comment-line)
@@ -179,6 +171,18 @@
 
 
 					; c mode 下 tab 输入
+
+(general-define-key
+ :keymaps 'c-mode-map
+ "C-<tab>" 'just-insert-tab
+ "C-<return>" (lambda ()
+		(interactive)
+		(goto-char (line-end-position))
+		(c-indent-new-comment-line)))
+
+
+
+;;aaaabb
 ;;(define-key c-mode-map (kbd "<tab>") (lambda () (interactive)  (insert "\t")))
 
 ;; (define-key c-mode-map (kbd "<tab>") 'self-insert-command)

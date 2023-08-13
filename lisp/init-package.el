@@ -29,7 +29,11 @@
 
 (use-package which-key
   :defer nil
-  :config (which-key-mode))
+  :init
+  (setq which-key-idle-delay 0.7
+	which-key-idle-secondary-delay 0)
+  :config
+  (which-key-mode t))
 
 
 

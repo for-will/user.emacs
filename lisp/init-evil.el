@@ -7,19 +7,32 @@
   :init
   (setq evil-want-keybinding nil)
   (setq evil-want-C-u-scroll t)
+  (with-eval-after-load 'evil-maps (define-key evil-motion-state-map (kbd "RET") nil))  ;; https://emacs.stackexchange.com/questions/46371/how-can-i-get-ret-to-follow-org-mode-links-when-using-evil-mode
   (evil-mode)
-
-  ;; https://emacs.stackexchange.com/questions/46371/how-can-i-get-ret-to-follow-org-mode-links-when-using-evil-mode
-  (with-eval-after-load 'evil-maps
-    (define-key evil-motion-state-map (kbd "RET") nil))
+  ;; :config
+  ;; (evil-set-undo-system 'undo-tree)
   )
 
 ;; Install Undo Tree
+
+;; (use-package undo-tree
+;;   :ensure t
+;;   :init
+;;   (global-undo-tree-mode t)
+;;   (undo-tree-mode t)
+;;   (setq undo-tree-auto-save-history nil))
+
 (use-package undo-tree
-  :diminish
+  :ensure t
   :init
-  (global-undo-tree-mode)
-  (setq undo-tree-auto-save-history nil)
+  (global-undo-tree-mode t)
+  :config
+  (setq undo-tree-visualizer-diff t
+	undo-tree-auto-save-history t
+	undo-tree-enable-undo-in-region t
+	undo-limit 800000           ; 800kb (default is 160kb)
+	undo-strong-limit 12000000  ; 12mb
+	undo-outer-limit 128000000) ; 128mb
   (evil-set-undo-system 'undo-tree))
 
 ;; 快捷键设置
