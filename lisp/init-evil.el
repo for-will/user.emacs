@@ -28,7 +28,7 @@
   (global-undo-tree-mode t)
   :config
   (setq undo-tree-visualizer-diff t
-	undo-tree-auto-save-history t
+	undo-tree-auto-save-history nil
 	undo-tree-enable-undo-in-region t
 	undo-limit 800000           ; 800kb (default is 160kb)
 	undo-strong-limit 12000000  ; 12mb

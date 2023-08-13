@@ -78,6 +78,8 @@
 (general-evil-setup)
 (general-nmap
  :prefix "SPC"
+ "c" 'my/edit-inline-comment
+ "m" 'my/edit-block-comment
  "x" 'execute-extended-command
  "f" 'counsel-find-file
  "r" 'counsel-buffer-or-recentf
@@ -93,7 +95,8 @@
  "gw" 'avy-goto-word-0
  "ef" 'eglot-code-action-quickfix
  "v" 'er/expand-region)
- 
+
+
 ;; 'C-j' 'C-k' 进行上下选择
 
 (add-hook 'helm-major-mode-hook
