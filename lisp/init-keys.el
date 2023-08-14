@@ -60,42 +60,55 @@
 (use-package general)
 
 
+;; (setq-default my-keys
+;;       '("c" 'my/edit-inline-comment
+;; 	"m" 'my/edit-block-comment
+;; 	"x" 'execute-extended-command
+;; 	"f" 'counsel-find-file
+;; 	"r" 'counsel-buffer-or-recentf
+;; 	"l" 'ivy-switch-buffer-other-window
+;; 	"i" 'consult-imenu-multi
+;; 	"s" 'consult-ripgrep
+;; 	"b" 'consult-buffer
+;; 	"p" 'project-find-file
+;; 	"gu" 'xref-find-references
+;; 	"gg" 'xref-find-definitions
+;; 	"gc" 'avy-goto-char
+;; 	"gl" 'avy-goto-line
+;; 	"gw" 'avy-goto-word-0
+;; 	"ef" 'eglot-code-action-quickfix
+;; 	"v" 'er/expand-region))
+
+
+
 (general-create-definer my-leader-def
-  :prefix "C-SPC"
+  :prefix "C-SPC "
   :states '(emacs motion normal insert))
 
-(my-leader-def
- "x" 'execute-extended-command ; 
- "f" 'counsel-find-file
- "l" 'helm-buffers-list
- "i" 'consult-imenu-multi
- "s" 'consult-ripgrep
- "b" 'consult-buffer
- "u" 'xref-find-references
- "g" 'xref-find-definitions
- "v" 'er/expand-region)
-
 (general-evil-setup)
-(general-nmap
- :prefix "SPC"
- "c" 'my/edit-inline-comment
- "m" 'my/edit-block-comment
- "x" 'execute-extended-command
- "f" 'counsel-find-file
- "r" 'counsel-buffer-or-recentf
- "l" 'ivy-switch-buffer-other-window
- "i" 'consult-imenu-multi
- "s" 'consult-ripgrep
- "b" 'consult-buffer
- "p" 'project-find-file
- "gu" 'xref-find-references
- "gg" 'xref-find-definitions
- "gc" 'avy-goto-char
- "gl" 'avy-goto-line
- "gw" 'avy-goto-word-0
- "ef" 'eglot-code-action-quickfix
- "v" 'er/expand-region)
-
+(let ((my-keys
+       '("c" 'my/edit-inline-comment
+	 "m" 'my/edit-block-comment
+	 "x" 'execute-extended-command
+	 "f" 'counsel-find-file
+	 "r" 'counsel-buffer-or-recentf
+	 "l" 'ivy-switch-buffer-other-window
+	 "i" 'consult-imenu-multi
+	 "s" 'consult-ripgrep
+	 "b" 'consult-buffer
+	 "p" 'project-find-file
+	 "gu" 'xref-find-references
+	 "gg" 'xref-find-definitions
+	 "gc" 'avy-goto-char
+	 "gl" 'avy-goto-line
+	 "gw" 'avy-goto-word-0
+	 "ef" 'eglot-code-action-quickfix
+	 "v" 'er/expand-region)))
+  (eval `(general-nmap :prefix "SPC" ,@my-keys))
+  (eval `(general-vmap :prefix "SPC" ,@my-keys))
+  (eval `(general-mmap :prefix "C-SPC" ,@my-keys))
+  (eval `(general-imap :prefix "C-SPC" ,@my-keys))
+  (eval `(general-emap :prefix "C-SPC" ,@my-keys)))
 
 ;; 'C-j' 'C-k' 进行上下选择
 
