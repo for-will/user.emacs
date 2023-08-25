@@ -25,6 +25,12 @@
 (recentf-mode t)
 (setq recentf-max-menu-items 20)
 
+;;; ts mode remap
+(setq major-mode-remap-alist
+      '((yaml-mode . yaml-ts-mode)
+	(js-json-mode . json-ts-mode)
+	(c-mode . c-ts-mode)))
+
 					; 其它配置文件加载
 (require 'init-const)
 (require 'init-startup)
@@ -97,11 +103,12 @@
   :hook
   (after-init . save-place-mode))
 					; 语法
+(setq treesit-font-lock-level 3)
+
 ;; (use-package treesit-auto
 ;;   :demand t
 ;;   :config
-;;   (setq treesit-auto-install 'prompt
-;; 	treesit-font-lock-level 4)
+;;   (setq treesit-auto-install 'prompt)
 ;;   (global-treesit-auto-mode t))
 
 ;;;;;;;;;;;;;;;;;;;;;

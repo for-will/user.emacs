@@ -2,19 +2,20 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package solarized-theme
-  :init
-  (load-theme 'solarized-light t))
+;; (use-package solarized-theme
+;;   :init
+;;   (load-theme 'solarized-light t))
 
-(use-package gruvbox-theme
-  :init (load-theme 'gruvbox-dark-soft t))
+;; (use-package gruvbox-theme
+;;   :init (load-theme 'gruvbox-dark-soft t))
 
 (use-package monokai-theme
   :init (load-theme 'monokai t))
 
-(use-package dracula-theme
-  :init
-  (load-theme 'dracula t))
+;; (use-package dracula-theme
+;;   :init
+;;   (load-theme 'dracula t))
+
 
 
                                         ; vertico 设置
@@ -27,8 +28,8 @@
     (vertico-posframe-poshandler . posframe-poshandler-window-center)
     (vertico-posframe-truncate-lines . nil)
     (vertico-posframe-fallback-mode . vertico-buffer-mode))
-   (consult-imenu-multi posframe
-    (vertico-posframe-poshandler . posframe-poshandler-window-bottom-center)
+   (consult-imenu-multi vertico-buffer-mode
+    (vertico-posframe-poshandler . posframe-poshandler-frame-bottom-center)
     (vertico-posframe-truncate-lines . t)
     (vertico-posframe-border-width . 2)
     (vertico-posframe-fallback-mode . vertico-buffer-mode))

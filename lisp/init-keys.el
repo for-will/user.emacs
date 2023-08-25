@@ -93,7 +93,7 @@
 	 "f" 'counsel-find-file
 	 "r" 'counsel-buffer-or-recentf
 	 "l" 'ivy-switch-buffer-other-window
-	 "i" 'consult-imenu-multi
+	 "i" 'consult-imenu
 	 "s" 'consult-ripgrep
 	 "b" 'consult-buffer
 	 "p" 'project-find-file
@@ -189,12 +189,19 @@
 					; c mode 下 tab 输入
 
 (general-define-key
- :keymaps 'c-mode-map
+ :keymaps 'c-ts-mode-map
  "C-<tab>" 'just-insert-tab
  "C-<return>" (lambda ()
 		(interactive)
 		(goto-char (line-end-position))
 		(c-indent-new-comment-line)))
+
+(general-define-key
+ "C-<return>"
+ (lambda ()
+   (interactive)
+   (goto-char (line-end-position))
+   (indent-new-comment-line)))
 
 
 

@@ -29,11 +29,19 @@
   :config
   (setq undo-tree-visualizer-diff t
 	undo-tree-auto-save-history nil
-	undo-tree-enable-undo-in-region t
+	undo-tree-enable-undo-in-region nil
+	evil-want-fine-undo t
 	undo-limit 800000           ; 800kb (default is 160kb)
 	undo-strong-limit 12000000  ; 12mb
 	undo-outer-limit 128000000) ; 128mb
   (evil-set-undo-system 'undo-tree))
+
+(use-package gcmh
+  :ensure t
+  :custom
+  (gcmh-idle-delay 10)
+  (gcmh-high-cons-threshold #x6400000)
+  :hook (after-init . gcmh-mode))
 
 ;; 快捷键设置
   (setcdr evil-insert-state-map nil)

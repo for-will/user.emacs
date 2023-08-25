@@ -38,7 +38,7 @@
         ;company-preview-frontend
         company-preview-common-frontend
         company-echo-metadata-frontend)
-      ;; company-backends '(company-files company-capf)
+      company-backends '(company-capf company-semantic company-keywords company-files)
       company-format-margin-function 'company-text-icons-margin
       company-text-face-extra-attributes '(:weight bold :slant italic)
       company-text-icons-add-background t
