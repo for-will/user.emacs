@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(add-to-list 'load-path (expand-file-name "~/.config/emacs/elpa-site/awesome-tab"))
+(add-to-list 'load-path (expand-file-name "elpa-site/awesome-tab" user-emacs-directory))
 
                                         ; try
 (use-package try)

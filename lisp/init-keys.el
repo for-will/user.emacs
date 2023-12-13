@@ -11,8 +11,6 @@
 
 (global-set-key (kbd "C-\\") 'sis-set-other)
 
-;(setq tab-always-indent 'complete)
-(setq tab-always-indent 'complete)
 
 
 ;; 查找函数/变量
@@ -87,7 +85,8 @@
 
 (general-evil-setup)
 (let ((my-keys
-       '("c" 'my/edit-inline-comment
+       '("a" 'consult-imenu-multi
+	 "c" 'my/edit-inline-comment
 	 "m" 'my/edit-block-comment
 	 "x" 'execute-extended-command
 	 "f" 'counsel-find-file
@@ -194,7 +193,7 @@
  "C-<return>" (lambda ()
 		(interactive)
 		(goto-char (line-end-position))
-		(c-indent-new-comment-line)))
+		(indent-new-comment-line)))
 
 (general-define-key
  "C-<return>"
@@ -203,12 +202,10 @@
    (goto-char (line-end-position))
    (indent-new-comment-line)))
 
-
-
-;;aaaabb
-;;(define-key c-mode-map (kbd "<tab>") (lambda () (interactive)  (insert "\t")))
-
-;; (define-key c-mode-map (kbd "<tab>") 'self-insert-command)
+					; 禁用烦人的 <tab> - completion-at-point
+(general-define-key
+ :keymaps 'completion-in-region-mode-map
+ "TAB" 'just-insert-tab)
 
 (provide 'init-keys)
 

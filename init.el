@@ -10,6 +10,7 @@
 (setq-default tab-width 8)
 
 (setq-default indent-tabs-mode t)
+(setq tab-always-indent t)
 
 ;;; 高亮当前行
 (global-hl-line-mode t)
@@ -28,8 +29,14 @@
 ;;; ts mode remap
 (setq major-mode-remap-alist
       '((yaml-mode . yaml-ts-mode)
-	(js-json-mode . json-ts-mode)
-	(c-mode . c-ts-mode)))
+	(js-json-mode . json-ts-mode)))
+;; (treesit-language-available-p 'c)
+;;(dolist (var (alist-get 'linux (c-ts-mode--indent-styles 'c)))
+;;  (print var))
+
+;;; gas-mode
+(add-to-list 'load-path (expand-file-name "elpa-site/gas-mode.el" user-emacs-directory))
+(require 'gas-mode)
 
 					; 其它配置文件加载
 (require 'init-const)

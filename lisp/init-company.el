@@ -12,6 +12,7 @@
    company-idle-delay
    (lambda()
      (cond ((eq major-mode 'js-json-mode) 0)
+	   ((eq major-mode 'json-ts-mode) 0)
 	   ((company-in-string-or-comment) nil)
 	   (t 0))
      ;; (if (and (company-in-string-or-comment) (not (eq major-mode 'js-json-mode))) nil 0))

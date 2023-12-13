@@ -14,7 +14,7 @@
 ;; 设置字体
 (set-face-attribute
  'default nil
- :height 180
+ :height 160
  :underline nil
  ;family "Monospace"
  :family "Hack Nerd Font")
