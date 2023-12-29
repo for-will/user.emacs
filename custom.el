@@ -14,7 +14,7 @@
  '(org-startup-dolded 'overview)
  '(org-startup-indented t)
  '(package-selected-packages
-   '(zenburn-theme yasnippet which-key vertico-posframe use-package undo-tree try treesit-auto svg-tag-mode solarized-theme smart-mode-line sis restart-emacs projectile org-bullets orderless monokai-theme marginalia keycast ivy-posframe hungry-delete helm-xref helm-lsp hc-zenburn-theme gruvbox-theme goto-chg general gcmh flycheck expand-region evil-multiedit evil-anzu embark-consult drag-stuff dracula-theme doom-modeline dap-mode crux counsel company benchmark-init all-the-icons-ivy-rich all-the-icons-ivy)))
+   '(go-mode zenburn-theme yasnippet which-key vertico-posframe use-package undo-tree try treesit-auto svg-tag-mode solarized-theme smart-mode-line sis restart-emacs projectile org-bullets orderless monokai-theme marginalia keycast ivy-posframe hungry-delete helm-xref helm-lsp hc-zenburn-theme gruvbox-theme goto-chg general gcmh flycheck expand-region evil-multiedit evil-anzu embark-consult drag-stuff dracula-theme doom-modeline dap-mode crux counsel company benchmark-init all-the-icons-ivy-rich all-the-icons-ivy)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -62,7 +62,9 @@
 ;; (electric-indent-mode -1)
 
 					; C语言开发环境
-(require 'my-clang)
+;; (require 'my-clang)
+
+(require 'my-golang)
 
 
 					; Smart Input Source
