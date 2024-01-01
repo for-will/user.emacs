@@ -2,8 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(setq mac-option-modifier 'meta
-      mac-command-modifier 'super)
 
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
@@ -21,14 +19,14 @@
 (defun open-init-file ()
   "Open init file."
   (interactive)
-  (find-file "~/.config/emacs/init.el"))
+  (find-file "~/.emacs.d/init.el"))
 
 ;; "cmd-o" - 切换窗口
 (global-set-key (kbd "s-o") 'other-window)
 
 ;; "cmd-n" - 切换tab
-(global-set-key (kbd "s-n") 'awesome-tab-forward)
-(global-set-key (kbd "s-N") 'awesome-tab-backward)
+(global-set-key (kbd "s-j") 'awesome-tab-forward)
+(global-set-key (kbd "s-k") 'awesome-tab-backward)
 (global-set-key (kbd "M-n") 'awesome-tab-backward-group)
 
 

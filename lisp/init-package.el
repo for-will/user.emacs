@@ -7,6 +7,7 @@
                                         ; try
 (use-package try)
 
+(use-package counsel)
 
 
 (use-package restart-emacs)

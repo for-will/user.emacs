@@ -1,9 +1,6 @@
 ;;; init-starup --- base config
 ;;; Commentary:
 ;;; Code:
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
 
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)

@@ -34,10 +34,6 @@
 ;;(dolist (var (alist-get 'linux (c-ts-mode--indent-styles 'c)))
 ;;  (print var))
 
-;;; gas-mode
-(add-to-list 'load-path (expand-file-name "elpa-site/gas-mode.el" user-emacs-directory))
-(require 'gas-mode)
-
 					; 其它配置文件加载
 (require 'init-const)
 (require 'init-startup)
@@ -54,7 +50,7 @@
 
 					; 窗口居中
 (modify-frame-parameters
- nil '((top . 0.5) (left . 0.5)))
+ nil '((top . 0.75) (left . 0.75)))
 
 (org-babel-load-file
  (expand-file-name "myinit.org" user-emacs-directory))

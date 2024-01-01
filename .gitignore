@@ -1,5 +1,6 @@
 \#*
 .lsp-session-v1
+.cache/
 auto-save-list/
 elpa-site/
 elpa/
@@ -9,3 +10,5 @@ places
 projects
 recentf
 tree-sitter/
+custom.el
+
