@@ -5,7 +5,7 @@
 (add-to-list
  'load-path (expand-file-name (concat user-emacs-directory "lisp")))
 
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(setq custom-file (expand-file-name "var/custom.el" user-emacs-directory))
 
 (setq-default tab-width 8)
 
@@ -36,11 +36,11 @@
 
 					; 其它配置文件加载
 (require 'init-const)
+(require 'init-proxy)
 (require 'init-startup)
 (require 'init-elpa)
 (require 'init-package)
 (require 'init-ui)
-
 (require 'init-company)
 (require 'init-themes)
 (require 'init-evil)
