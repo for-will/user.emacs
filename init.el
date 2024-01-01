@@ -47,6 +47,7 @@
 (require 'init-keys)
 ;; (require 'init-lsp)
 (require 'init-sis)
+(require 'init-awesome-tab)
 
 
 					; 窗口居中
