@@ -52,7 +52,7 @@
 
 					; 窗口居中
 (modify-frame-parameters
- nil '((top . 0.75) (left . 0.75)))
+ nil '((top . 0.5) (left . 0.5)))
 
 (org-babel-load-file
  (expand-file-name "myinit.org" user-emacs-directory))

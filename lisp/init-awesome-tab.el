@@ -51,7 +51,8 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
               (string-prefix-p "*Flycheck" name)))
      )))
 
-(setq awesome-tab-show-tab-index nil)
+;; 显示tab的序号
+(setq awesome-tab-show-tab-index t)
 
 ;;;
 (provide 'init-awesome-tab)

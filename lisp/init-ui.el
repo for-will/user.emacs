@@ -17,6 +17,7 @@
 ;;显示行号
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 (setq display-line-numbers-type t) ; relative or visual
+(global-display-line-numbers-mode t)
 
 
 ;; 设置字体

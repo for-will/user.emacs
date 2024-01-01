@@ -6,15 +6,15 @@
 ;;   :init
 ;;   (load-theme 'solarized-light t))
 
-;; (use-package gruvbox-theme
-;;   :init (load-theme 'gruvbox-dark-soft t))
+(use-package gruvbox-theme
+  :init (load-theme 'gruvbox-dark-soft t))
 
 ;; (use-package monokai-theme
 ;;  :init (load-theme 'monokai t))
 
-(use-package dracula-theme
-  :init
-  (load-theme 'dracula t))
+;; (use-package dracula-theme
+  ;; :init
+  ;; (load-theme 'dracula t))
 
 
 
@@ -95,16 +95,10 @@
   (doom-modeline-mode t))
 
 ;; (use-package smart-mode-line
-;;   :init
-;;   (setq sml/no-confirm-load-theme t
-;; 	sml/theme 'respectful)
-;;   (sml/setup))
-
-;; (use-package all-the-icons-ivy)
-
-;; (all-the-icons-ivy-rich-mode t)
-
-
+  ;; :init
+  ;; (setq sml/no-confirm-load-theme t
+	;; sml/theme 'respectful)
+  ;; (sml/setup))
  
 
 (use-package all-the-icons-ivy-rich
