@@ -44,8 +44,8 @@
 (use-package vertico-posframe
   :init
   (setq vertico-posframe-parameters
-        '((left-fringe . 8)
-          (right-fringe . 8)))
+        '((left-fringe . 0)
+          (right-fringe . 0)))
   :hook (after-init . vertico-posframe-mode))
 
 (use-package orderless
