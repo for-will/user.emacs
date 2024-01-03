@@ -16,6 +16,7 @@
   ;; :init
   ;; (load-theme 'dracula t))
 
+(use-package posframe)
 
 
                                         ; vertico 设置
