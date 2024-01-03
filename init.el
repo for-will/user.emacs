@@ -54,15 +54,15 @@
 (modify-frame-parameters
  nil '((top . 0.5) (left . 0.5)))
 
-(org-babel-load-file
- (expand-file-name "myinit.org" user-emacs-directory))
+;; (org-babel-load-file
+ ;; (expand-file-name "myinit.org" user-emacs-directory))
 
 ;; (electric-indent-mode -1)
 
 					; C语言开发环境
 ;; (require 'my-clang)
 
-(require 'my-golang)
+;; (require 'my-golang)
 
 					; 保存历史，记住上个命令
 (use-package savehist
