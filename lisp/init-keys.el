@@ -95,7 +95,7 @@
 	 "i" 'consult-imenu
 	 "s" 'consult-ripgrep
 	 "b" 'consult-buffer
-	 "p" 'project-find-file
+	 "p" 'counsel-projectile-find-file
 	 "gu" 'xref-find-references
 	 "gg" 'xref-find-definitions
 	 "gc" 'avy-goto-char

@@ -9,14 +9,30 @@
 ;; (use-package gruvbox-theme
 ;;   :init (load-theme 'gruvbox-dark-soft t))
 
-(use-package monokai-theme
-  :init (load-theme 'monokai t))
+;; (use-package monokai-theme
+  ;; :init (load-theme 'monokai t))
 
 ;; (use-package dracula-theme
 ;;   :init
 ;;   (load-theme 'dracula t))
 
+(use-package doom-themes
+  :ensure t
+  :init
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (load-theme 'doom-one t)
 
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+  ;; Enable custom neotree theme (all-the-icons must be installed!)
+  (doom-themes-neotree-config)
+  ;; or for treemacs users
+  (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
+  (doom-themes-treemacs-config)
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
 
                                         ; vertico 设置
 (setq
@@ -33,11 +49,13 @@
     (vertico-posframe-truncate-lines . t)
     (vertico-posframe-border-width . 2)
     (vertico-posframe-fallback-mode . vertico-buffer-mode))
-   (t posframe
-    (vertico-posframe-poshandler . posframe-poshandler-frame-center)
-    (vertico-posframe-truncate-lines . t)
-    (vertico-posframe-border-width . 2)
-    (vertico-posframe-fallback-mode . vertico-buffer-mode))))
+   (project-find-file (:not posframe))
+   (t (:not posframe))))
+   ;; (t posframe
+    ;; (vertico-posframe-poshandler . posframe-poshandler-frame-center)
+    ;; (vertico-posframe-truncate-lines . t)
+    ;; (vertico-posframe-border-width . 2)
+    ;; (vertico-posframe-fallback-mode . vertico-buffer-mode))))
 
 ;; 显示不下时自动换行
 (setq
@@ -51,18 +69,11 @@
 (define-key vertico-map (kbd "C-j") 'vertico-next)
 (define-key vertico-map (kbd "C-k") 'vertico-previous)
 
-(custom-set-faces
- '(vertico-posframe-border
-   ((t (:background "#75715E" :weight bold)))))
 
                                         ; ALL THE ICONS
-(use-package all-the-icons
-  :if (display-graphic-p))
-
-(use-package all-the-icons-ivy-rich
-  :if (display-graphic-p)
-  :init
-  (all-the-icons-ivy-rich-mode t))
+(use-package all-the-icons)
+;; (use-package all-the-icons
+;;   :if (display-graphic-p))
 
 (use-package simple
   :ensure nil
@@ -101,36 +112,33 @@
 ;; 	sml/theme 'respectful)
 ;;   (sml/setup))
 
-;; (use-package all-the-icons-ivy)
-
-;; (all-the-icons-ivy-rich-mode t)
-
-
- 
+(use-package counsel-projectile
+  :ensure t
+  :init (counsel-projectile-mode t))
 
 (use-package all-the-icons-ivy-rich
+  :ensure t
   :init
   (all-the-icons-ivy-rich-mode t)
-  (ivy-rich-mode t)
-  (ivy-mode t)
   :config
-  (ivy-mode nil)
+  (setq all-the-icons-ivy-rich-icon t
+	all-the-icons-ivy-rich-color-icon t
+	all-the-icons-ivy-rich-project t)
   (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-next-line)
   (define-key ivy-minibuffer-map (kbd "C-k") 'ivy-previous-line)
   (define-key ivy-switch-buffer-map (kbd "C-k") 'ivy-previous-line)
   (define-key ivy-switch-buffer-map (kbd "C-d") 'ivy-switch-buffer-kill))
 
-(ivy-mode -1)
+(use-package ivy-rich
+  :ensure t
+  :init (ivy-rich-mode 1))
 
-(use-package ivy-posframe
-  :init
-  (ivy-posframe-mode t))
 
-;; (ivy-set-display-transformer 'ivy-switch-buffer 'all-the-icons-ivy-buffer-transformer)
-;; (ivy-set-display-transformer 'counsel-find-file 'all-the-icons-ivy-file-transformer)
-;; (ivy-set-display-transformer 'counsel-find-file nil)
-;; (all-the-icons-ivy-setup)
-;; (ivy-set-display-transformer 'counsel-find-file 'all.the.icons.transfo x)
+;;; 使用悬浮窗口
+;; (use-package ivy-posframe
+;;   :if (display-graphic-p)
+;;   :init
+;;   (ivy-posframe-mode t))
 
 
 (provide 'init-themes)
