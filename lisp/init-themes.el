@@ -6,15 +6,9 @@
 ;;   :init
 ;;   (load-theme 'solarized-light t))
 
-;; (use-package gruvbox-theme
-;;   :init (load-theme 'gruvbox-dark-soft t))
-
-;; (use-package monokai-theme
-  ;; :init (load-theme 'monokai t))
-
 ;; (use-package dracula-theme
-;;   :init
-;;   (load-theme 'dracula t))
+  ;; :init
+  ;; (load-theme 'dracula t))
 
 (use-package doom-themes
   :ensure t
@@ -35,14 +29,9 @@
   (doom-themes-org-config))
 
                                         ; vertico 设置
-(setq
- vertico-multiform-commands
+(setq vertico-multiform-commands
  '((consult-line posframe
     (vertico-posframe-poshandler . posframe-poshandler-window-top-center)
-    (vertico-posframe-fallback-mode . vertico-buffer-mode))
-   (find-file posframe
-    (vertico-posframe-poshandler . posframe-poshandler-window-center)
-    (vertico-posframe-truncate-lines . nil)
     (vertico-posframe-fallback-mode . vertico-buffer-mode))
    (consult-imenu-multi vertico-buffer-mode
     (vertico-posframe-poshandler . posframe-poshandler-frame-bottom-center)

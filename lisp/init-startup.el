@@ -1,9 +1,9 @@
 ;;; init-starup --- base config
 ;;; Commentary:
 ;;; Code:
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
+
+;; add linux brew bin path to exec-path
+(setq exec-path (append '("/home/linuxbrew/.linuxbrew/bin") exec-path))
 
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)

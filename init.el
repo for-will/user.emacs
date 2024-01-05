@@ -5,7 +5,7 @@
 (add-to-list
  'load-path (expand-file-name (concat user-emacs-directory "lisp")))
 
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(setq custom-file (expand-file-name "var/custom.el" user-emacs-directory))
 
 (setq-default tab-width 8)
 
@@ -34,65 +34,35 @@
 ;;(dolist (var (alist-get 'linux (c-ts-mode--indent-styles 'c)))
 ;;  (print var))
 
-;;; gas-mode
-(add-to-list 'load-path (expand-file-name "elpa-site/gas-mode.el" user-emacs-directory))
-(require 'gas-mode)
-
 					; 其它配置文件加载
 (require 'init-const)
+(require 'init-proxy)
 (require 'init-startup)
 (require 'init-elpa)
 (require 'init-package)
 (require 'init-ui)
-
 (require 'init-company)
 (require 'init-themes)
 (require 'init-evil)
 (require 'init-keys)
 ;; (require 'init-lsp)
+(require 'init-sis)
+(require 'init-awesome-tab)
 
 
 					; 窗口居中
 (modify-frame-parameters
  nil '((top . 0.5) (left . 0.5)))
 
-(org-babel-load-file
- (expand-file-name "myinit.org" user-emacs-directory))
+;; (org-babel-load-file
+ ;; (expand-file-name "myinit.org" user-emacs-directory))
 
 ;; (electric-indent-mode -1)
 
 					; C语言开发环境
 ;; (require 'my-clang)
 
-(require 'my-golang)
-
-
-					; Smart Input Source
-(use-package sis
-  ;; :hook
-  ;; enable the /context/ and /inline region/ mode for specific buffers
-  ;; (((text-mode prog-mode) . sis-context-mode)
-  ;;  ((text-mode prog-mode) . sis-inline-mode))
-
-  :config
-  ;; For MacOS
-  (sis-ism-lazyman-config
-
-   ;; English input source may be: "ABC", "US" or another one.
-   ;; "com.apple.keylayout.ABC"
-   "com.apple.keylayout.ABC"
-   ;; Other language input source: "rime", "sogou" or another one.
-   ;; "im.rime.inputmethod.Squirrel.Rime"
-   "com.baidu.inputmethod.BaiduIM.wubi")
-  ;; enable the /cursor color/ mode
-  (sis-global-cursor-color-mode t)
-  ;; enable the /respect/ mode
-  (sis-global-respect-mode t)
-  ;; enable the /context/ mode for all buffers
-  (sis-global-context-mode t)
-  ;; enable the /inline english/ mode for all buffers
-  (sis-global-inline-mode t)
-  )
+;; (require 'my-golang)
 
 					; 保存历史，记住上个命令
 (use-package savehist
