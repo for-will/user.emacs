@@ -1,4 +1,4 @@
-;;; init-theme.el --- 配色
+;;; init-vertico.el --- vertico-posframe
 ;;; Commentary:
 ;;; Code:
 
@@ -6,38 +6,51 @@
 ;;   :init
 ;;   (load-theme 'solarized-light t))
 
-(use-package gruvbox-theme
-  :init (load-theme 'gruvbox-dark-soft t))
+;; (use-package gruvbox-theme
+;;   :init (load-theme 'gruvbox-dark-soft t))
 
+(use-package doom-themes
+  :ensure t
+  :init
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (load-theme 'doom-one t)
+
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+  ;; Enable custom neotree theme (all-the-icons must be installed!)
+  (doom-themes-neotree-config)
+  ;; or for treemacs users
+  (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
+  (doom-themes-treemacs-config)
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
 ;; (use-package monokai-theme
 ;;  :init (load-theme 'monokai t))
 
 ;; (use-package dracula-theme
   ;; :init
   ;; (load-theme 'dracula t))
-
-(use-package posframe)
-
-
                                         ; vertico 设置
-(setq vertico-multiform-commands
- '((consult-line posframe
-    (vertico-posframe-poshandler . posframe-poshandler-window-top-center)
-    (vertico-posframe-fallback-mode . vertico-buffer-mode))
-   (consult-imenu-multi vertico-buffer-mode
-    (vertico-posframe-poshandler . posframe-poshandler-frame-bottom-center)
-    (vertico-posframe-truncate-lines . t)
-    (vertico-posframe-border-width . 2)
-    (vertico-posframe-fallback-mode . vertico-buffer-mode))
-   (counsel-find-file posframe
-    (vertico-posframe-poshandler . posframe-poshandler-frame-bottom-center)
-    (vertico-posframe-truncate-lines . nil)
-    (vertico-posframe-fallback-mode . vertico-buffer-mode))
-   (t posframe
-    (vertico-posframe-poshandler . posframe-poshandler-frame-center)
-    (vertico-posframe-truncate-lines . t)
-    (vertico-posframe-border-width . 2)
-    (vertico-posframe-fallback-mode . vertico-buffer-mode))))
+;; (setq vertico-multiform-commands
+;;  '((consult-line posframe
+;;     (vertico-posframe-poshandler . posframe-poshandler-window-top-center)
+;;     (vertico-posframe-fallback-mode . vertico-buffer-mode))
+;;    (consult-imenu-multi posframe
+;;     (vertico-posframe-poshandler . posframe-poshandler-frame-bottom-center)
+;;     (vertico-posframe-truncate-lines . t)
+;;     (vertico-posframe-border-width . 2)
+;;     (vertico-posframe-fallback-mode . vertico-buffer-mode))
+;;    (counsel-find-file posframe
+;;     (vertico-posframe-poshandler . posframe-poshandler-frame-bottom-center)
+;;     (vertico-posframe-truncate-lines . nil)
+;;     (vertico-posframe-fallback-mode . vertico-buffer-mode))
+;;    (t posframe
+;;     (vertico-posframe-poshandler . posframe-poshandler-frame-center)
+;;     (vertico-posframe-truncate-lines . t)
+;;     (vertico-posframe-border-width . 2)
+;;     (vertico-posframe-fallback-mode . vertico-buffer-mode))))
 
 ;; 显示不下时自动换行
 (setq
@@ -45,18 +58,21 @@
  vertico-posframe-border-width 2)
 
 
-(vertico-multiform-mode t)
+;; (vertico-multiform-mode t)
 
 ;; vertico 下使用jk选择
-(define-key vertico-map (kbd "C-j") 'vertico-next)
-(define-key vertico-map (kbd "C-k") 'vertico-previous)
+;; (define-key vertico-map (kbd "C-j") 'vertico-next)
+;; (define-key vertico-map (kbd "C-k") 'vertico-previous)
 
-(custom-set-faces
- '(vertico-posframe-border
-   ((t (:background "#75715E" :weight bold)))))
+;; (custom-set-faces
+ ;; '(vertico-posframe-border
+   ;; ((t (:background "#75715E" :weight bold)))))
 
                                         ; ALL THE ICONS
 (use-package all-the-icons
+  :if (display-graphic-p))
+
+(use-package all-the-icons-nerd-fonts
   :if (display-graphic-p))
 
 (use-package all-the-icons-ivy-rich
@@ -116,9 +132,9 @@
 
 (ivy-mode -1)
 
-(use-package ivy-posframe
-  :init
-  (ivy-posframe-mode t))
+;; (use-package ivy-posframe
+  ;; :init
+  ;; (ivy-posframe-mode t))
 
 ;; (ivy-set-display-transformer 'ivy-switch-buffer 'all-the-icons-ivy-buffer-transformer)
 ;; (ivy-set-display-transformer 'counsel-find-file 'all-the-icons-ivy-file-transformer)

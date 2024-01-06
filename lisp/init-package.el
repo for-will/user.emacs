@@ -36,22 +36,6 @@
 
 
 
-;; 增强minibuffer补全：vertico和Orderless
-(use-package vertico
-  :init
-  :hook (after-init . vertico-mode))
-
-(use-package vertico-posframe
-  :init
-  (setq vertico-posframe-parameters
-        '((left-fringe . 0)
-          (right-fringe . 0)))
-  :hook (after-init . vertico-posframe-mode))
-
-(use-package orderless
-  :init
-  (setq completion-styles '(orderless)
-        orderless-component-separator "[ .&]"))
 
 ;; 配置Marginalia增强minbuffer的annotation
 (use-package marginalia

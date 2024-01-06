@@ -119,7 +119,8 @@
  
 ;; 注释快捷键
 ;; (define-key evil-insert-state-map (kbd "s-/") 'comment-line)
-(global-set-key (kbd "s-/") 'comment-line)
+;; (global-set-key (kbd "s-/") 'comment-line)
+;; (global-set-key (kbd "C-/") 'comment-line)
 
 
 ;;; 调整窗口大小
