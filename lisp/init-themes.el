@@ -1,13 +1,6 @@
-;;; init-vertico.el --- vertico-posframe
+;;; init-themes.el --- themes
 ;;; Commentary:
 ;;; Code:
-
-;; (use-package solarized-theme
-;;   :init
-;;   (load-theme 'solarized-light t))
-
-;; (use-package gruvbox-theme
-;;   :init (load-theme 'gruvbox-dark-soft t))
 
 (use-package doom-themes
   :ensure t
@@ -26,59 +19,7 @@
   (doom-themes-treemacs-config)
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
-;; (use-package monokai-theme
-;;  :init (load-theme 'monokai t))
 
-;; (use-package dracula-theme
-  ;; :init
-  ;; (load-theme 'dracula t))
-                                        ; vertico 设置
-;; (setq vertico-multiform-commands
-;;  '((consult-line posframe
-;;     (vertico-posframe-poshandler . posframe-poshandler-window-top-center)
-;;     (vertico-posframe-fallback-mode . vertico-buffer-mode))
-;;    (consult-imenu-multi posframe
-;;     (vertico-posframe-poshandler . posframe-poshandler-frame-bottom-center)
-;;     (vertico-posframe-truncate-lines . t)
-;;     (vertico-posframe-border-width . 2)
-;;     (vertico-posframe-fallback-mode . vertico-buffer-mode))
-;;    (counsel-find-file posframe
-;;     (vertico-posframe-poshandler . posframe-poshandler-frame-bottom-center)
-;;     (vertico-posframe-truncate-lines . nil)
-;;     (vertico-posframe-fallback-mode . vertico-buffer-mode))
-;;    (t posframe
-;;     (vertico-posframe-poshandler . posframe-poshandler-frame-center)
-;;     (vertico-posframe-truncate-lines . t)
-;;     (vertico-posframe-border-width . 2)
-;;     (vertico-posframe-fallback-mode . vertico-buffer-mode))))
-
-;; 显示不下时自动换行
-(setq
- ;vertico-posframe-truncate-lines nil
- vertico-posframe-border-width 2)
-
-
-;; (vertico-multiform-mode t)
-
-;; vertico 下使用jk选择
-;; (define-key vertico-map (kbd "C-j") 'vertico-next)
-;; (define-key vertico-map (kbd "C-k") 'vertico-previous)
-
-;; (custom-set-faces
- ;; '(vertico-posframe-border
-   ;; ((t (:background "#75715E" :weight bold)))))
-
-                                        ; ALL THE ICONS
-(use-package all-the-icons
-  :if (display-graphic-p))
-
-(use-package all-the-icons-nerd-fonts
-  :if (display-graphic-p))
-
-(use-package all-the-icons-ivy-rich
-  :if (display-graphic-p)
-  :init
-  (all-the-icons-ivy-rich-mode t))
 
 (use-package simple
   :ensure nil
@@ -86,7 +27,7 @@
   :init
   (setq column-number-mode t))
 
-;; 显示按键和执行的命令
+					; 显示按键和执行的命令
 ;; (use-package keycast
 ;;   :hook (after-init . keycast-mode))
 (unless (package-installed-p 'keycast)
@@ -97,13 +38,6 @@
 ;; (keycast-mode-line-mode 0)
 ;; (add-hook 'post-command-hook 'keycast--update t)
 
-;; (default-value keycast-mode-line)
-;; (list 'keycast-mode-line)
-
-;; (funcall keycast-mode-line-window-predicate)
-
-;;      (keycast--format keycast-mode-line-format)
-
 
 					; doom mode line
 (use-package doom-modeline
@@ -112,35 +46,47 @@
   (doom-modeline-mode t))
 
 ;; (use-package smart-mode-line
-  ;; :init
-  ;; (setq sml/no-confirm-load-theme t
-	;; sml/theme 'respectful)
-  ;; (sml/setup))
- 
+;;   :init
+;;   (setq sml/no-confirm-load-theme t
+;; 	sml/theme 'respectful)
+;;   (sml/setup))
+
+(use-package counsel-projectile
+  :ensure t
+  :init (counsel-projectile-mode t))
+
+;;; 安装icons
+(use-package all-the-icons-nerd-fonts
+  :demand t
+  :init (all-the-icons-nerd-fonts-prefer))
 
 (use-package all-the-icons-ivy-rich
-  :init
-  (all-the-icons-ivy-rich-mode t)
-  (ivy-rich-mode t)
-  (ivy-mode t)
+  :ensure t
   :config
-  (ivy-mode nil)
-  (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-next-line)
-  (define-key ivy-minibuffer-map (kbd "C-k") 'ivy-previous-line)
-  (define-key ivy-switch-buffer-map (kbd "C-k") 'ivy-previous-line)
-  (define-key ivy-switch-buffer-map (kbd "C-d") 'ivy-switch-buffer-kill))
+  (setq all-the-icons-ivy-rich-icon t
+	all-the-icons-ivy-rich-color-icon t
+	all-the-icons-ivy-rich-project t)
+  :init
+  (all-the-icons-ivy-rich-mode t))
+  
 
-(ivy-mode -1)
+(use-package ivy-rich
+  :ensure t
+  :init (ivy-rich-mode 1)
+  :bind (
+	 :map ivy-minibuffer-map
+	 ("C-j" . 'ivy-next-line)
+	 ("C-k" . 'ivy-previous-line)
+	 :map ivy-switch-buffer-map
+	 ("C-k" . 'ivy-previous-line)
+	 ("C-d" . 'ivy-switch-buffer-kill)))
 
+
+;;; 使用悬浮窗口
 ;; (use-package ivy-posframe
-  ;; :init
-  ;; (ivy-posframe-mode t))
-
-;; (ivy-set-display-transformer 'ivy-switch-buffer 'all-the-icons-ivy-buffer-transformer)
-;; (ivy-set-display-transformer 'counsel-find-file 'all-the-icons-ivy-file-transformer)
-;; (ivy-set-display-transformer 'counsel-find-file nil)
-;; (all-the-icons-ivy-setup)
-;; (ivy-set-display-transformer 'counsel-find-file 'all.the.icons.transfo x)
+;;   :if (display-graphic-p)
+;;   :init
+;;   (ivy-posframe-mode t))
 
 
 (provide 'init-themes)

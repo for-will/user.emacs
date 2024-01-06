@@ -86,14 +86,15 @@
        '("a" 'consult-imenu-multi
 	 "c" 'my/edit-inline-comment
 	 "m" 'my/edit-block-comment
-	 "x" 'execute-extended-command
+	 ;; "x" 'execute-extended-command
+	 "x" 'counsel-M-x
 	 "f" 'counsel-find-file
 	 "r" 'counsel-buffer-or-recentf
 	 "l" 'ivy-switch-buffer-other-window
 	 "i" 'consult-imenu
 	 "s" 'consult-ripgrep
 	 "b" 'consult-buffer
-	 "p" 'project-find-file
+	 "p" 'counsel-projectile-find-file
 	 "gu" 'xref-find-references
 	 "gg" 'xref-find-definitions
 	 "gc" 'avy-goto-char
@@ -119,7 +120,7 @@
  
 ;; 注释快捷键
 ;; (define-key evil-insert-state-map (kbd "s-/") 'comment-line)
-;; (global-set-key (kbd "s-/") 'comment-line)
+(global-set-key (kbd "s-/") 'comment-line)
 ;; (global-set-key (kbd "C-/") 'comment-line)
 
 

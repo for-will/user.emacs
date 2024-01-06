@@ -58,7 +58,7 @@
 ;; (org-babel-load-file
  ;; (expand-file-name "myinit.org" user-emacs-directory))
 
-(electric-indent-mode -1)
+(electric-indent-mode t)
 
 					; C语言开发环境
 ;; (require 'my-clang)

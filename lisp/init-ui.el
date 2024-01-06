@@ -3,10 +3,9 @@
 ;;; Code:
 
 ;; 图形化界面不显示滚动条和工具栏
-(if (display-graphic-p)
-    (progn
-      (scroll-bar-mode -1)
-      (tool-bar-mode -1)))
+(when (display-graphic-p)
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1))
 
 ;; 不显示菜单栏
 (menu-bar-mode -1)
