@@ -41,6 +41,7 @@
 (require 'init-elpa)
 (require 'init-package)
 (require 'init-ui)
+(require 'init-fonts)
 (require 'init-company)
 (require 'init-themes)
 (require 'init-evil)
@@ -49,6 +50,8 @@
 ;;(require 'init-sis)
 (require 'init-awesome-tab)
 (require 'init-vertico)
+
+;; (azi/rest-font-setup)
 
 
 					; 窗口居中

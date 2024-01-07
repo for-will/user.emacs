@@ -19,13 +19,6 @@
 (global-display-line-numbers-mode t)
 
 
-;; 设置字体
-(set-face-attribute
- 'default nil
- :height 160
- :underline nil
- ;family "Monospace"
- :family "Hack Nerd Font")
 
 
 
