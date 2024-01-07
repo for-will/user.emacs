@@ -19,7 +19,8 @@
 (defun open-init-file ()
   "Open init file."
   (interactive)
-  (find-file "~/.emacs.d/init.el"))
+  (find-file (expand-file-name "init.el" user-emacs-directory)))
+  ;; (find-file "~/.emacs.d/init.el"))
 
 ;; "cmd-o" - 切换窗口
 (global-set-key (kbd "s-o") 'other-window)
