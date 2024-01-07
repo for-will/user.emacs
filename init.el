@@ -27,9 +27,9 @@
 (setq recentf-max-menu-items 20)
 
 ;;; ts mode remap
-(setq major-mode-remap-alist
-      '((yaml-mode . yaml-ts-mode)
-	(js-json-mode . json-ts-mode)))
+;(setq major-mode-remap-alist
+;;      '((yaml-mode . yaml-ts-mode)
+;;	(js-json-mode . json-ts-mode)))
 ;; (treesit-language-available-p 'c)
 ;;(dolist (var (alist-get 'linux (c-ts-mode--indent-styles 'c)))
 ;;  (print var))
@@ -45,9 +45,10 @@
 (require 'init-themes)
 (require 'init-evil)
 (require 'init-keys)
-;; (require 'init-lsp)
-(require 'init-sis)
+;;;; (require 'init-lsp)
+;;(require 'init-sis)
 (require 'init-awesome-tab)
+(require 'init-vertico)
 
 
 					; 窗口居中
@@ -57,7 +58,7 @@
 ;; (org-babel-load-file
  ;; (expand-file-name "myinit.org" user-emacs-directory))
 
-;; (electric-indent-mode -1)
+(electric-indent-mode t)
 
 					; C语言开发环境
 ;; (require 'my-clang)

@@ -1,3 +1,6 @@
+;;; Package --- init elpa
+;;; Commentary:
+;;; Code:
 (setq package-archives
       '(("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
         ("gnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
