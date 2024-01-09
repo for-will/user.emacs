@@ -87,8 +87,8 @@
        '("a" 'consult-imenu-multi
 	 "c" 'my/edit-inline-comment
 	 "m" 'my/edit-block-comment
-	 ;; "x" 'execute-extended-command
-	 "x" 'counsel-M-x
+	 "x" 'execute-extended-command
+	 ;; "x" 'counsel-M-x
 	 "f" 'counsel-find-file
 	 "r" 'counsel-buffer-or-recentf
 	 "l" 'ivy-switch-buffer-other-window
@@ -102,6 +102,7 @@
 	 "gl" 'avy-goto-line
 	 "gw" 'avy-goto-word-0
 	 "ef" 'eglot-code-action-quickfix
+	 "j" 'awesome-tab-ace-jump
 	 "v" 'er/expand-region)))
   (eval `(general-nmap :prefix "SPC" ,@my-keys))
   (eval `(general-vmap :prefix "SPC" ,@my-keys))

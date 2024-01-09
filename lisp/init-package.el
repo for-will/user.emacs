@@ -2,17 +2,56 @@
 ;;; Commentary:
 ;;; Code:
 
+;; Third part packages
+;; make use-package default behavior better
+;; with `use-package-always-ensure' you won't need ":ensure t" all the time
+;; with `use-package-always-defer' you won't need ":defer t" all the time
+(setq use-package-always-ensure t
+      use-package-enable-imenu-support t
+      use-package-expand-minimally t)
+
+;; Settings for exec-path-from-shell
+;; fix the PATH environment variable issue
+(use-package exec-path-from-shell
+  :ensure t
+  :when (or (memq window-system '(mac ns x))
+	    (unless azi-os-win
+	      (daemonp)))
+  :init (exec-path-from-shell-initialize))
+
+;; format all, formatter for almost languages
+;; great for programmers
+(use-package format-all
+  :ensure t
+  ;; enable format on save with format-all-mode
+  ;; :hook ((prog-mode . format-all-mode)
+  ;; 	   (format-all-mode . format-all-ensure-formatter))
+  ;; and bind a shortcut to manual format
+  :bind ("C-c f" . #'format-all-region-or-buffer))
+
+;; move-dup, move/copy line or region
+(use-package move-dup
+  :ensure t
+  :hook (after-init . global-move-dup-mode))
+
+;; Settings for which-key - sugest next key
+(use-package which-key
+  :ensure t
+  :config
+  (setq which-key-idle-delay 0.7
+	which-key-idle-secondary-delay 0)
+  :hook (after-init . which-key-mode))
+
+(use-package benchmark-init
+  :init (benchmark-init/activate)
+  :hook (after-init . benchmark-init/deactivate))
+
                                         ; try
 (use-package try)
 
 (use-package counsel)
 
-
 (use-package restart-emacs)
-
-(use-package benchmark-init
-  :init (benchmark-init/activate)
-  :hook (after-init . benchmark-init/deactivate))
 
 (use-package emacs
   :config (defalias 'yes-or-no-p 'y-or-n-p))
@@ -26,13 +65,6 @@
 (use-package flycheck
   :hook (after-init . global-flycheck-mode))
 
-(use-package which-key
-  :defer nil
-  :init
-  (setq which-key-idle-delay 0.7
-	which-key-idle-secondary-delay 0)
-  :config
-  (which-key-mode t))
 
 
 
@@ -58,4 +90,3 @@
 ;;;
 (provide 'init-package)
 ;;; init-package.el ends here
-

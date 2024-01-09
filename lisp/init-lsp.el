@@ -2,7 +2,7 @@
 ;;; Commentary:
 
 ;;; Code:
- 
+
 (setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp
     projectile hydra flycheck company avy which-key helm-xref dap-mode))
 

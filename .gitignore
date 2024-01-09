@@ -11,4 +11,5 @@ projects
 recentf
 tree-sitter/
 custom.el
+var/
 

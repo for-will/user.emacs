@@ -8,7 +8,7 @@
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-one t)
+  (load-theme 'doom-1337 t)
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
@@ -53,7 +53,9 @@
 
 (use-package counsel-projectile
   :ensure t
-  :init (counsel-projectile-mode t))
+  :init
+  (setq projectile-known-projects-file (expand-file-name "var/projectile-bookmarks.eld" user-emacs-directory))
+  (counsel-projectile-mode t))
 
 ;;; 安装icons
 (use-package all-the-icons-nerd-fonts
