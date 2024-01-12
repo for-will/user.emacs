@@ -84,25 +84,26 @@
 
 (general-evil-setup)
 (let ((my-keys
-       '("a" 'consult-imenu-multi
-	 "c" 'my/edit-inline-comment
-	 "m" 'my/edit-block-comment
-	 "x" 'execute-extended-command
+       '("a" '("imenu-m"    . consult-imenu-multi)
+	 "c" '("comment-l"  . my/edit-inline-comment)
+	 "m" '("comment-b"  . my/edit-block-comment)
+	 "x" '("exec"       . execute-extended-command)
 	 ;; "x" 'counsel-M-x
-	 "f" 'counsel-find-file
-	 "r" 'counsel-buffer-or-recentf
-	 ;; "l" 'ivy-switch-buffer-other-window
-	 "i" 'consult-imenu
-	 "s" 'consult-ripgrep
-	 "b" 'consult-buffer
-	 "p" 'counsel-projectile-find-file
-	 "gu" 'xref-find-references
-	 "gg" 'xref-find-definitions
-	 "gc" 'avy-goto-char
-	 "gl" 'avy-goto-line
-	 "gw" 'avy-goto-word-0
+	 "f" '("findf"      . counsel-find-file)
+	 "r" '("recentf"    . counsel-buffer-or-recentf)
+	 "i" '("imenu"      . consult-imenu)
+	 "s" '("rg"         . consult-ripgrep)
+	 "b" '("buffers"    . consult-buffer)
+	 "p" '("projectf"   . counsel-projectile-find-file)
+	 "g" '(:ignore t :wk ("g"  . "goto"))
+	 "gr" '("x-refs"    . xref-find-references)
+	 "gg" '("x-defs"    . xref-find-definitions)
+	 "gc" '("char"      . avy-goto-char)
+	 "gl" '("line"      . avy-goto-line)
+	 "gw" '("word"      . avy-goto-word-0)
+	 "e" '(:wk ("e" . "eglot"))
 	 "ef" 'eglot-code-action-quickfix
-	 "j" 'awesome-tab-ace-jump
+	 "j" '("tab-ace"    . awesome-tab-ace-jump)
 	 "v" 'er/expand-region)))
   (eval `(general-nmap :prefix "SPC" ,@my-keys))
   (eval `(general-vmap :prefix "SPC" ,@my-keys))

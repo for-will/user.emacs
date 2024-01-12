@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(add-to-list 'load-path (expand-file-name "pkg/awesome-tab" user-emacs-directory))
+;; (add-to-list 'load-path (expand-file-name "pkg/awesome-tab" user-emacs-directory))
 
 					; awesome-tab
 
@@ -52,7 +52,7 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
      )))
 
 ;; 显示tab的序号
-(setq awesome-tab-show-tab-index t)
+(setq awesome-tab-show-tab-index nil)
 
 ;;;
 (provide 'init-awesome-tab)
