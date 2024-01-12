@@ -26,7 +26,7 @@
 	  (f-uni (azi-find-font (plist-get args :unicode) azi-fonts-unicode))
 	  (f-emo (azi-find-font (plist-get args :emoji) azi-fonts-emoji))
 	  (f-cjk (azi-find-font (plist-get args :cjk) azi-fonts-cjk)))
-      (set-face-attribute 'default nil :family f-def :height 160)
+      (set-face-attribute 'default nil :family f-def :height 140)
       (setq face-font-rescale-alist `((,f-cjk . 1.0)))
       (dolist (pair `((unicode  . ,f-uni)
 		      (emoji    . ,f-emo)

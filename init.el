@@ -18,7 +18,7 @@
 (require 'init-themes)
 (require 'init-evil)
 (require 'init-keys)
-;;;; (require 'init-lsp)
+(require 'init-lsp)
 (require 'init-company)
 (require 'init-sis)
 (require 'init-awesome-tab)

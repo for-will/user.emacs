@@ -91,7 +91,7 @@
 	 ;; "x" 'counsel-M-x
 	 "f" 'counsel-find-file
 	 "r" 'counsel-buffer-or-recentf
-	 "l" 'ivy-switch-buffer-other-window
+	 ;; "l" 'ivy-switch-buffer-other-window
 	 "i" 'consult-imenu
 	 "s" 'consult-ripgrep
 	 "b" 'consult-buffer

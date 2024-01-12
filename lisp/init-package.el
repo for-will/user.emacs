@@ -87,6 +87,9 @@
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
+(use-package avy
+  :ensure t)
+
 ;;;
 (provide 'init-package)
 ;;; init-package.el ends here
