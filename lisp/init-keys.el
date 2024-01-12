@@ -84,7 +84,12 @@
 
 (general-evil-setup)
 (let ((my-keys
-       '("a" '("imenu-m"    . consult-imenu-multi)
+       '("1" '("w-one"      . delete-other-windows)
+	 "2" '("w-below"    . split-window-below)
+         "3" '("w-right"    . split-window-right)
+         "wj" '("w-jump"    . ace-select-window)
+         "wx" '("w-quit"    . ace-delete-window)
+	 "a" '("imenu-m"    . consult-imenu-multi)
 	 "c" '("comment-l"  . my/edit-inline-comment)
 	 "m" '("comment-b"  . my/edit-block-comment)
 	 "x" '("exec"       . execute-extended-command)
