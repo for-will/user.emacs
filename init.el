@@ -25,7 +25,7 @@
 (require 'init-vertico)
 (require 'init-prog)
 
-(let ((default-directory "~/.emacs.d/pkg")
+(let ((default-directory (expand-file-name "pkg" user-emacs-directory))
       (file-name-handleralist nil))
   (normal-top-level-add-subdirs-to-load-path)
   (require 'init-awesome-tab)
