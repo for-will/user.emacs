@@ -1,0 +1,1 @@
+("~/.config/emacs/" "~/for-will/lua.go/")

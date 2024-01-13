@@ -2,9 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
-(defvar azi-fonts-default '("Hack Nerd Font" "Cascadia Code PL" "Courier Prime" "Jetbrains Mono" "Roboto Mono" "Menlo" "Consolas"))
-(defvar azi-fonts-unicode '("Hack Nerd Font" "Segoe UI Symbol" "Symbola" "Symbol"))
-(defvar azi-fonts-emoji '("Hack Nerd Font" "Apple Color Emoji" "Segoe UI Emoji" "Noto Color Emoji" "Noto Emoji"))
+(defvar azi-fonts-default '("Hack Nerd Font Propo" "Cascadia Code PL" "Courier Prime" "Jetbrains Mono" "Roboto Mono" "Menlo" "Consolas"))
+(defvar azi-fonts-unicode '("Hack Nerd Font Propo" "Segoe UI Symbol" "Symbola" "Symbol"))
+(defvar azi-fonts-emoji '("Hack Nerd Font Propo" "Apple Color Emoji" "Segoe UI Emoji" "Noto Color Emoji" "Noto Emoji"))
 (defvar azi-fonts-cjk '("WeRead Font" "KaiTi" "STKaiTi" "WenQuanYi Micro Hei" "Noto Sans Mono CJK HK"))
 
 ;;;###autoload

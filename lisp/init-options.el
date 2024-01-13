@@ -83,8 +83,8 @@
 
 ;; Special configs for macOS
 (when azi-os-mac
-  (setq mac-command-modifier 'meta
-	mac-option-modifier 'super
+  (setq mac-command-modifier 'super
+	mac-option-modifier 'meta
 	ns-use-native-fullscreen t))
 
 ;; solve the Chinese paste issue
