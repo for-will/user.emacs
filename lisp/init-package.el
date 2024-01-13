@@ -87,6 +87,15 @@
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
+(use-package avy
+  :ensure t)
+
+(use-package ace-window
+  :ensure
+  :config
+  (global-set-key (kbd "M-o") 'ace-window)
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
+
 ;;;
 (provide 'init-package)
 ;;; init-package.el ends here

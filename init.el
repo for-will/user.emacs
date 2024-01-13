@@ -18,13 +18,18 @@
 (require 'init-themes)
 (require 'init-evil)
 (require 'init-keys)
-;;;; (require 'init-lsp)
+(require 'init-lsp)
 (require 'init-company)
 (require 'init-sis)
-(require 'init-awesome-tab)
+;; (require 'init-awesome-tab)
 (require 'init-vertico)
 (require 'init-prog)
 
+(let ((default-directory "~/.emacs.d/pkg")
+      (file-name-handleralist nil))
+  (normal-top-level-add-subdirs-to-load-path)
+  (require 'init-awesome-tab)
+  )
 
 ;; (use-package treesit-auto
 ;;   :demand t

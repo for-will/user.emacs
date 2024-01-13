@@ -1,4 +1,4 @@
-;;; init-options --- options setup
+;; init-options --- options setup
 ;;; Commentary:
 ;;; Code:
 
@@ -159,7 +159,7 @@
 
 
 ;;; 语法高亮等级(最高为4)
-;; (setq treesit-font-lock-level 3)
+(setq treesit-font-lock-level 4)
 
 (provide 'init-options)
 
